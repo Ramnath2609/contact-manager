@@ -4,13 +4,12 @@ import { connect } from 'react-redux'
 
 
 class ContactForm extends React.Component{
-    constructor () {
-        super()
+    constructor (props) {
+        super(props)
         this.state = {
-            email : '',
-            name : '',
-            mobile : '',
-
+            email : props.contact ? props.contact.email : '',
+            name : props.contact ? props.contact.name : '',
+            mobile : props.contact ? props.contact.mobile : '',
         }
     }
 
@@ -39,33 +38,36 @@ class ContactForm extends React.Component{
                 <Col offset={8} span={8}>
                 
                 <Form onSubmit={this.handleSubmit} className="login-form">
-                    <h1>Add a new contact</h1>
+                    
                     <Form.Item>
                     {getFieldDecorator('name', {
+                        initialValue : this.state.name,
                         rules: [{ required: true, message: 'Please input your name!' }],
                     })(
                         <Input
-                        prefix={<Icon type="user" name = "name" onChange = { this.handleChange } style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        prefix={<Icon type="user" name = "name"  onChange = { this.handleChange } style={{ color: 'rgba(0,0,0,.25)' }} />}
                         placeholder="Name"
                         />,
                     )}
                     </Form.Item>
                     <Form.Item>
                     {getFieldDecorator('email', {
+                        initialValue : this.state.email,
                         rules: [{ required: true, message: 'Please input your email!' }],
                     })(
                         <Input
-                        prefix={<Icon type="mail" name = "email" onChange = { this.handleChange } style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        prefix={<Icon type="mail" name = "email"   onChange = { this.handleChange } style={{ color: 'rgba(0,0,0,.25)' }} />}
                         placeholder="Email"
                         />,
                     )}
                     </Form.Item>
                     <Form.Item>
                     {getFieldDecorator('mobile', {
+                        initialValue : this.state.mobile,
                         rules: [{ required: true, message: 'Please input your Password!' }],
                     })(
                         <Input
-                        prefix={<Icon type="mobile" name="password" onChange = { this.handleChange } style={{ color: 'rgba(0,0,0,.25)' }} />}
+                        prefix={<Icon type="mobile" name="mobile"   onChange = { this.handleChange } style={{ color: 'rgba(0,0,0,.25)' }} />}
                         type="mobile"
                         placeholder="Mobile"
                         />,

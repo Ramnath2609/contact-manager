@@ -45,6 +45,20 @@ module.exports.show = (req, res) => {
         })
 }
 
+module.exports.update = (req, res) => {
+    const id = req.params.id
+    const { user } = req.user
+    Contact.findByIdAndUpdate(id, req.body, { new : true})
+        .then(contact => {
+            if(contact){
+                res.send(contact)
+            }
+        })
+        .catch(err => {
+            res.send(err)
+        })
+}
+
 
 module.exports.destroy = (req, res) => {
     const id = req.params.id

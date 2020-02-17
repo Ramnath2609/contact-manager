@@ -11,6 +11,7 @@ function New(props){
 
     return (
         <div>
+            <h1>Add a new contact</h1>
             <Form handleSubmit = { handleSubmit }/>
         </div>
     )

@@ -7,6 +7,7 @@ import WrappedRegistrationForm from './components/user/Register'
 import List from './components/contacts/List'
 import New from './components/contacts/New'
 import { Layout } from 'antd';
+import Edit from './components/contacts/Edit';
 
 const { Header, Footer, Sider, Content } = Layout;
 const { SubMenu } = Menu
@@ -76,6 +77,7 @@ function App () {
                 <Route path = "/register" component = { WrappedRegistrationForm } />
                 <Route exact path = "/contacts" component = { List } />
                 <Route path = "/contacts/new" component = { New } />
+                <Route path = "/contacts/edit/:id" component = { Edit } />
             </Switch>
         </BrowserRouter>
     );

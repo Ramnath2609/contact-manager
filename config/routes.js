@@ -13,6 +13,7 @@ router.get('/users/account', authenticateUser, usersController.account)
 router.get('/contacts', authenticateUser, contactsController.list)
 router.post('/contacts', authenticateUser, contactsController.create)
 router.get('/contacts/:id', authenticateUser, contactsController.show)
+router.put('/contacts/:id', authenticateUser, contactsController.update)
 router.delete ('/contacts/:id', authenticateUser, contactsController.destroy)
 
 
